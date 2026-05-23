@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德辉鑫思维BOOKOS图书系统</title>
+    <!-- 关键：给浏览器标签页加上PNG.png图标 -->
+    <link rel="icon" href="PNG.png" type="image/png">
+    <style>
+        :root {
+            --bg: #f0f4f9;
+            --text: #1a202c;
+            --card: #ffffff;
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --shadow: 0 4px 20px rgba(0,0,0,0.07);
+            --border: #e2e8f0;
+        }
+
+        .dark-mode {
+            --bg: #121826;
+            --text: #f1f5f9;
+            --card: #1e293b;
+            --primary: #3b82f6;
+            --primary-light: #60a5fa;
+            --shadow: 0 4px 20px rgba(0,0,0,0.25);
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: SimSun, "宋体", serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding: 30px 15px;
+            max-width: 1100px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .theme-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 9px 20px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 3px 12px rgba(37,99,235,0.3);
+        }
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(37,99,235,0.4);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        .logo {
+            width: 110px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 18px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .download-area {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .down-link {
+            display: inline-block;
+            padding: 14px 28px;
+            margin: 0 12px 16px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+        }
+        .down-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 22px rgba(37,99,235,0.35);
+        }
+
+        .video-card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .video-card h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-left: 14px;
+            border-left: 5px solid var(--primary);
+        }
+        video {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-btn" id="switchTheme">切换深色模式</button>
+
+    <div class="header">
+        <img src="PNG.png" class="logo" alt="系统logo">
+        <h1 class="title">德辉鑫思维BOOKOS图书系统</h1>
+    </div>
+
+    <div class="download-area">
+        <a href="https://1851473546.share.123865.com/123pan/CtOavd-6ESD3" class="down-link">点击下载(123pan)</a>
+        <a href="https://www.ilanzou.com/s/5oOWCp0h" class="down-link">点击下载(蓝奏云)</a>
+    </div>
+
+    <div class="video-card">
+        <h2>系统操作演示</h2>
+        <video controls>
+            <source src="media.mp4" type="video/mp4">
+            浏览器不支持视频播放，请升级浏览器
+        </video>
+    </div>
+
+    <div class="video-card">
+        <h2>Win7系统光盘安装演示</h2>
+        <video controls>
+            <source src="iso.mp4" type="video/mp4">
+            浏览器不支持视频播放，请升级浏览器
+        </video>
+    </div>
+
+    <div class="video-card">
+        <h2>安装易语言教程</h2>
+        <video controls>
+            <source src="MP4.mp4" type="video/mp4">
+            浏览器不支持视频播放，请升级浏览器
+        </video>
+    </div>
+
+    <script>
+        const btn = document.getElementById('switchTheme');
+        const body = document.body;
+
+        if(localStorage.getItem('siteTheme') === 'dark'){
+            body.classList.add('dark-mode');
+            btn.innerText = '切换浅色模式';
+        }
+
+        btn.addEventListener('click',()=>{
+            body.classList.toggle('dark-mode');
+            if(body.classList.contains('dark-mode')){
+                btn.innerText = '切换浅色模式';
+                localStorage.setItem('siteTheme','dark');
+            }else{
+                btn.innerText = '切换深色模式';
+                localStorage.setItem('siteTheme','light');
+            }
+        })
+    </script>
+</body>
+</html>
